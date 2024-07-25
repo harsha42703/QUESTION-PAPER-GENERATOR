@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4 PDF Generator</title>
+    <!-- Correct the script source URL for jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .a4-content {
+            width: 21cm;
+            height: 29.7cm;
+            margin: 1cm auto;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your content goes here -->
+    <div id="content" class="a4-content">
+        <!-- Database data should be dynamically inserted here using PHP -->
+        <h1>Your Database Content Goes Here</h1>
+        <!-- Example content, replace this with your database data -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+    </div>
+
+    <!-- Button to trigger PDF download -->
+    <button onclick="generatePDF()">Download PDF</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script>function generatePDF() {
+    // Create a new jsPDF instance
+    const pdf = new jsPDF();
+
+    // Get the HTML content
+    const content = document.getElementById('content');
+
+    // Convert HTML to PDF
+    pdf.html(content, {
+        callback: function (pdf) {
+            // Save the PDF with a specific name
+            pdf.save('output.pdf');
+        }
+    });
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</body>
+</html>

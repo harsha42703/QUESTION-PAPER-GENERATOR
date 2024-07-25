@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Froala Editor with MathML Plugin</title>
+    <!-- Froala Editor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/css/froala_editor.pkgd.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/js/froala_editor.pkgd.min.js" integrity="sha512-..." crossorigin="anonymous"></script>
+    <!-- MathML Plugin for Froala Editor -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/js/plugins/math.min.js" integrity="sha512-..." crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Froala Editor with MathML Plugin</h1>
+    <!-- Froala Editor instance -->
+    <div id="editor"></div>
+    <!-- Button to get the user's input -->
+    <button onclick="getUserInput()">Get User Input</button>
+
+    <script>
+        // Initialize Froala Editor with MathML Plugin
+        new FroalaEditor('#editor', {
+            pluginsEnabled: ['math'],
+            toolbarButtons: ['bold', 'italic', 'subscript', 'superscript', 'math'],
+        });
+
+        // Function to get user input from Froala Editor
+        function getUserInput() {
+            const userInput = document.getElementById('editor').innerHTML;
+            console.log(userInput);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+
+
+<?php 
+if(isset($_POST['submit']))
+{
+    $input = $_POST['input'];
+    echo $input;
+}
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Froala Editor with MathType</title>
+    <!-- Froala Editor -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/css/froala_editor.pkgd.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/3.2.6/js/froala_editor.pkgd.min.js"></script>
+    <!-- MathType for Froala Editor -->
+    <script type="text/javascript" src="https://www.wiris.net/demo/plugins/app/WIRISplugins.js?viewer=froala"></script>
+</head>
+<body>
+    <h1>Froala Editor with MathType</h1>
+    <form method="post" action="">
+    <!-- Froala Editor instance -->
+    <textarea name="input" id="editor"></textarea>
+    <input name="submit" type="submit" value="submit">
+
+</form>
+    <!-- Button to get the user's input -->
+    <button  onclick="getUserInput()">Get User Input</button>
+
+    <script>
+        // Initialize Froala Editor with MathType
+        new FroalaEditor('#editor', {
+            toolbarButtons: ['bold', 'italic', 'subscript', 'superscript', 'mathType'],
+        });
+
+        // Function to get user input from Froala Editor
+        function getUserInput() {
+            const userInput = document.getElementById('editor').value;
+            console.log(userInput);
+        }
+    </script>
+</body>
+</html>
